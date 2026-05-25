@@ -1,5 +1,5 @@
 <img width="1385" height="819" alt="image" src="https://github.com/user-attachments/assets/5d73dae9-4d44-46cc-8157-70ead346d234" />
-<img width="1907" height="892" alt="Captura de pantalla 2026-05-25 124726" src="https://github.com/user-attachments/assets/ffde0b1e-f72c-4233-9e74-6e0e6e6a3382" />
+<img width="1907" height="892" alt="Captura de pantalla 2026-05-25 124726" src="https://github.com/user-attachments/assets/897f79cd-30e3-4521-b5b3-f2d631e5021b" />
 
 
 # Email Sender Web 
