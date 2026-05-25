@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Sender - Panel de Control</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f6f6f6 ; color: #ffffff; min-height: 100vh; }
+        .navbar { background-color: #888888; border-bottom: 1px solid #ffffff; }
+        .card { background-color: #eeeeee; border: 1px solid #2d2d2d; border-radius: 12px; }
+        .form-control { background-color: #f6f6f6; border: 1px solid #3d3d3d; color: #000000; }
+        .form-control:focus { background-color: #f6f6f6; color: #000000; border-color: #0d6efd; box-shadow: none; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark px-4 mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">✉️ Email Sender Web</a>
+        <div class="d-flex align-items-center gap-3">
+            <span class="text-muted small">Conectado como: <strong class="text-white" th:text="${session.usuarioCorreo}">usuario@gmail.com</strong></span>
+            <a th:href="@{/logout}" class="btn btn-outline-danger btn-sm">Cerrar Sesión</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card p-4 shadow">
+                <h4 class="fw-bold mb-4">Redactar Nuevo Correo Electrónico</h4>
+
+                <div th:if="${msgExito != null and !#strings.isEmpty(msgExito)}"
+                     class="alert alert-success py-2 small"
+                     th:text="${msgExito}">
+                </div>
+
+                <div th:if="${msgError != null and !#strings.isEmpty(msgError)}"
+                     class="alert alert-danger py-2 small"
+                     th:text="${msgError}">
+                </div>
+
+                <form th:action="@{/panel/enviar}" method="POST" enctype="multipart/form-data">
+
+                    <div class="mb-3">
+                        <label for="destinatario" class="form-label small text-muted">Para (Destinatario):</label>
+                        <input type="email" class="form-control" id="destinatario" name="destinatario" placeholder="ejemplo@correo.com" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="asunto" class="form-label small text-muted">Asunto:</label>
+                        <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Escribe el asunto del correo" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label small text-muted">Mensaje (Cuerpo del correo):</label>
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="6" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="archivos" class="form-label small text-muted">Adjuntar Archivos (Opcional):</label>
+                        <input class="form-control" type="file" id="archivos" name="archivos" multiple>
+                        <div class="form-text text-muted" style="font-size: 0.75rem;">
+                            Puedes seleccionar múltiples archivos de cualquier tipo admitido por los estándares SMTP.
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2 justify-content-end">
+                        <button type="reset" class="btn btn-secondary px-4">Limpiar Campos</button>
+                        <button type="submit" class="btn btn-primary px-4 fw-semibold">Enviar Correo </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
