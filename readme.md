@@ -17,15 +17,4 @@ Validación de Archivos en Backend: Se adaptaron las reglas de negocio del siste
 * **Protocolo de Red:** Jakarta Mail (JavaMail API) sobre redes seguras TLS (Puerto 587).
 * **Gestor de Dependencias:** Maven.
 
----
-
-## 📂 Estructura del Proyecto
-
-src/main/
-├── java/com/miportafolio/emailsenderweb/
-│   ├── EmailSenderWebApiApplication.java  # Clase de arranque del servidor
-│   ├── controller/                        # Controladores HTTP (Auth y Panel)
-│   └── service/                           # Lógica de negocio (Autenticación y Envío SMTP)
-└── resources/
-    ├── application.properties             # Parámetros del servidor
-    └── templates/                         # Vistas del frontend (Login y Panel)
+-     
